@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import profileImage from "../assets/arsalan-profile.jpg";
 
 const roles = [
   "Full Stack Web Developer",
@@ -120,15 +121,13 @@ function Hero() {
 
       {/* RIGHT SIDE */}
       <div className="hero-image">
-
         <div className="image-wrapper">
-
-          <div className="image-placeholder">
-            Your Photo
-          </div>
-
+          <img
+            src={profileImage}
+            alt="Shaikh Arsalan"
+            className="profile-image"
+          />
         </div>
-
       </div>
 
     </section>
