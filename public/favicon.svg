@@ -1,0 +1,157 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+>
+  <defs>
+    <linearGradient id="neonGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff" />
+      <stop offset="50%" stop-color="#7c3aed" />
+      <stop offset="100%" stop-color="#ff00cc" />
+    </linearGradient>
+
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur1" />
+      <feGaussianBlur stdDeviation="5" result="blur2" />
+
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      .border {
+        stroke-dasharray: 280;
+        stroke-dashoffset: 280;
+        animation:
+          drawBorder 2.8s ease-in-out infinite,
+          pulseBorder 1.8s ease-in-out infinite alternate;
+      }
+
+      .letter {
+        animation:
+          pulseA 1.6s ease-in-out infinite alternate;
+        transform-origin: center;
+      }
+
+      .spark {
+        animation: sparkPulse 1.2s ease-in-out infinite alternate;
+      }
+
+      @keyframes drawBorder {
+        0% {
+          stroke-dashoffset: 280;
+        }
+
+        50% {
+          stroke-dashoffset: 0;
+        }
+
+        100% {
+          stroke-dashoffset: -280;
+        }
+      }
+
+      @keyframes pulseBorder {
+        from {
+          opacity: 0.55;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulseA {
+        from {
+          opacity: 0.75;
+          transform: scale(0.97);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1.03);
+        }
+      }
+
+      @keyframes sparkPulse {
+        from {
+          opacity: 0.25;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect
+    x="4"
+    y="4"
+    width="92"
+    height="92"
+    rx="24"
+    fill="#050816"
+  />
+
+  <!-- NEON BORDER -->
+  <rect
+    class="border"
+    x="7"
+    y="7"
+    width="86"
+    height="86"
+    rx="21"
+    fill="none"
+    stroke="url(#neonGradient)"
+    stroke-width="3.5"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- NEON A -->
+  <g class="letter" filter="url(#neonGlow)">
+    <path
+      d="
+        M22 76
+        L42 27
+        C44 22 47 19 51 19
+        C55 19 58 22 60 27
+        L79 76
+        H66
+        L61 63
+        H40
+        L35 76
+        Z
+
+        M46 52
+        H56
+        L51 38
+        Z
+      "
+      fill="url(#neonGradient)"
+      fill-rule="evenodd"
+    />
+  </g>
+
+  <!-- SMALL NEON SPARKS -->
+  <circle
+    class="spark"
+    cx="79"
+    cy="22"
+    r="3"
+    fill="#00e5ff"
+    filter="url(#neonGlow)"
+  />
+
+  <circle
+    class="spark"
+    cx="22"
+    cy="80"
+    r="2"
+    fill="#ff00cc"
+    filter="url(#neonGlow)"
+  />
+</svg>
