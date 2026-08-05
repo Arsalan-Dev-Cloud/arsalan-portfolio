@@ -381,7 +381,10 @@ Move into the project:
 cd arsalan-portfolio
 ```
 
-# ⚡ Creating the React + TypeScript Project with Vite
+---
+
+
+## ⚡ Creating the React + TypeScript Project with Vite
 
 This portfolio frontend was created using Vite.
 
@@ -391,9 +394,9 @@ To create a new React + TypeScript project with Vite, run:
 npm create vite@latest
 or
 npm create vite@latest arsalan-portfolio -- --template react-ts
+```
 
 ---
-
 ## 3. Install Frontend Dependencies
 
 ```bash
