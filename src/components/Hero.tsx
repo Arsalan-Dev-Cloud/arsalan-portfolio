@@ -110,7 +110,7 @@ function Hero() {
             in
           </Link>
 
-          <Link to="mailto:your@email.com">
+          <Link to="mailto:shaikhmohammadarsalan5@gmail.com">
             @
           </Link>
 
