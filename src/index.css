@@ -4435,17 +4435,268 @@ button, a{
   -webkit-tap-highlight-color: transparent;
 }
 
-.image-wrapper {
-  width: 380px;
-  height: 450px;
+/* =========================================================
+   PROFILE IMAGE - FINAL RESPONSIVE FIX
+========================================================= */
+
+.image-wrapper{
+  width: min(380px, 100%);
+  aspect-ratio: 380 / 450;
+  height: auto;
+
   overflow: hidden;
   border-radius: 24px;
 }
 
-.profile-image {
+.profile-image{
   width: 100%;
   height: 100%;
+
+  display: block;
+
   object-fit: cover;
   object-position: center;
-  display: block;
+}
+
+
+/* =========================================================
+   FINAL MOBILE HERO FIX
+========================================================= */
+
+@media (max-width: 650px){
+
+  .hero{
+    width: 100%;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 42px;
+
+    padding:
+      36px 20px
+      70px;
+
+    overflow: hidden;
+  }
+
+
+  /* IMAGE FIRST */
+
+  .hero-image{
+    order: -1;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-wrapper{
+    width: min(290px, 82vw);
+    height: auto;
+
+    aspect-ratio: 380 / 450;
+
+    transform: none;
+
+    border-radius:
+      28px 12px
+      28px 12px;
+  }
+
+  .image-wrapper:hover{
+    transform: none;
+  }
+
+  .image-wrapper::before,
+  .image-wrapper::after{
+    display: none;
+  }
+
+  .image-placeholder{
+    border-radius:
+      27px 11px
+      27px 11px;
+  }
+
+
+  /* CONTENT */
+
+  .hero-content{
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+
+  /* HELLO BADGE */
+
+  .hero-intro{
+    margin:
+      0 auto 18px;
+
+    font-size: 9px;
+  }
+
+
+  /* NAME */
+
+  .hero h1{
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    font-size:
+      clamp(
+        2.4rem,
+        12vw,
+        3.25rem
+      );
+
+    line-height: 1.04;
+
+    letter-spacing: -2px;
+
+    text-align: center;
+
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .hero h1 span{
+    display: inline;
+  }
+
+
+  /* ROLE */
+
+  .role-wrapper{
+    width: 100%;
+
+    min-height: 50px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
+  .role-line{
+    width: 3px;
+    height: 34px;
+
+    margin-right: 12px;
+  }
+
+  .animated-role{
+    max-width:
+      calc(100% - 30px);
+
+    font-size: 1.25rem;
+
+    line-height: 1.3;
+
+    text-align: left;
+  }
+
+
+  /* DESCRIPTION */
+
+  .hero-description{
+    width: 100%;
+    max-width: 330px;
+
+    margin:
+      0 auto;
+
+    padding: 0;
+
+    font-size: 0.92rem;
+
+    line-height: 1.75;
+
+    text-align: center;
+  }
+
+
+  /* BUTTONS */
+
+  .hero-buttons{
+    width: 100%;
+
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+  .hero-buttons .btn{
+    width: 100%;
+
+    min-height: 48px;
+  }
+
+
+  /* SOCIAL LINKS */
+
+  .social-links{
+    width: 100%;
+
+    justify-content: center;
+
+    margin-top: 22px;
+  }
+}
+
+
+/* =========================================================
+   375PX / SMALL PHONE
+========================================================= */
+
+@media (max-width: 420px){
+
+  .hero{
+    padding:
+      28px 16px
+      60px;
+
+    gap: 36px;
+  }
+
+  .image-wrapper{
+    width: min(270px, 78vw);
+  }
+
+  .hero h1{
+    font-size:
+      clamp(
+        2.15rem,
+        11.5vw,
+        2.8rem
+      );
+
+    letter-spacing: -1.7px;
+  }
+
+  .animated-role{
+    font-size: 1.08rem;
+  }
+
+  .hero-description{
+    max-width: 320px;
+
+    font-size: 0.9rem;
+  }
 }
