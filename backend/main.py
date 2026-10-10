@@ -92,17 +92,23 @@ Message:
 
     try:
 
+        print("Contact form: connecting to Gmail...", flush=True)
+
         with smtplib.SMTP_SSL(
             "smtp.gmail.com",
-            465
+            465,
+            timeout=20
         ) as smtp:
+            print("Contact form: connected to Gmail.", flush=True)
 
             smtp.login(
                 sender_email,
-                app_password
+                app_password.strip().replace(" ", "")
             )
+            print("Contact form: Gmail login successful.", flush=True)
 
             smtp.send_message(email)
+            print("Contact form: email accepted by SMTP.", flush=True)
 
         return {
             "status": "success",

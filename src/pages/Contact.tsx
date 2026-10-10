@@ -81,7 +81,11 @@ function Contact() {
       })
 
       if (!response.ok) {
-        throw new Error("Failed to send message")
+        const errorData = await response.json().catch(() => null)
+
+        throw new Error(
+          errorData?.detail || `Request failed: ${response.status}`
+        )
       }
 
       const data = await response.json()
@@ -95,12 +99,14 @@ function Contact() {
       setSubject("")
       setMessage("")
     } catch (error) {
-      console.error(error)
+      console.error("Contact form error:", error)
 
       setStatus("error")
 
       setErrorMessage(
-        "Unable to send your message. Please try again."
+        error instanceof Error
+          ? error.message
+          : "Unable to send your message. Please try again."
       )
     }
   }
