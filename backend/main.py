@@ -90,6 +90,8 @@ def contact_form(data: ContactMessage):
         headers={
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "arsalan-portfolio-contact/1.0",
         },
         method="POST",
     )
