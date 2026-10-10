@@ -4700,3 +4700,11 @@ button, a{
     font-size: 0.9rem;
   }
 }
+
+/* FIX: Keep Skills and Projects cards visible on their dedicated pages */
+
+.skills-page .skill-card.reveal,
+.projects-page .project-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
