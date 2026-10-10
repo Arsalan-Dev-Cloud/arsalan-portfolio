@@ -1,98 +1,12 @@
-## Website:-
-
-**Arsalan Portfolio:**
-https://arsalan-portfolio-mbqy.onrender.com/home
-
-The Portfolio is publicly deployed using Render.
-
----
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-'''--------------------------------------------------------------------------------------------------------------'''
-
 # 🚀 Shaikh Arsalan — Personal Portfolio
 
-A modern, responsive, full-stack personal portfolio website built using **React, TypeScript, Vite, Python, and FastAPI**.
+A modern, responsive, full-stack personal portfolio built using **React, TypeScript, Vite, Python, and FastAPI**.
 
-The portfolio showcases my skills, projects, education, experience, and contact information. It also includes a working backend API and a contact form that sends messages directly to my email using Gmail SMTP.
+The portfolio showcases my technical skills, projects, education, experience, resume, and contact information. It includes a FastAPI backend, REST API integration, and a contact form that sends messages through the Resend email API.
 
 ---
 
-# 📌 Table of Contents
+## 📌 Table of Contents
 
 - [About the Project](#-about-the-project)
 - [Live Website](#-live-website)
@@ -105,22 +19,22 @@ The portfolio showcases my skills, projects, education, experience, and contact 
 - [Environment Variables](#-environment-variables)
 - [Frontend Commands](#-frontend-commands)
 - [Backend Commands](#-backend-commands)
-- [Git and GitHub Commands](#-git-and-github-commands)
 - [API Endpoints](#-api-endpoints)
 - [Contact Form Workflow](#-contact-form-workflow)
+- [Uptime Monitoring](#-uptime-monitoring)
+- [Git and GitHub Commands](#-git-and-github-commands)
 - [Build for Production](#-build-for-production)
-- [Updating the Portfolio](#-updating-the-portfolio)
-- [Security](#-security)
 - [Deployment](#-deployment)
+- [Security](#-security)
 - [Troubleshooting](#-troubleshooting)
 - [Future Improvements](#-future-improvements)
 - [Author](#-author)
 
 ---
 
-# 👨‍💻 About the Project
+## 👨‍💻 About the Project
 
-This is my personal developer portfolio created to showcase my work, technical skills, education, experience, and software development projects.
+This is my personal developer portfolio, created to showcase my work, technical skills, education, experience, and software development projects.
 
 The frontend is developed using:
 
@@ -128,51 +42,41 @@ The frontend is developed using:
 - TypeScript
 - Vite
 - CSS
-- React Router
+- React Router DOM
 
 The backend is developed using:
 
 - Python
 - FastAPI
 - Pydantic
+- Uvicorn
 - Python Dotenv
-- Gmail SMTP
+- Resend API
 
 The frontend communicates with the FastAPI backend through REST API requests.
 
-The backend currently provides:
+The backend provides profile, skills, and projects data and processes contact-form submissions.
 
-- Skills data
-- Projects data
-- Profile information
-- Contact form email delivery
+## 🌐 Live Website
 
----
+| Service | URL |
+|---|---|
+| Live Portfolio | https://arsalan-portfolio-mbqy.onrender.com/home |
+| GitHub Repository | https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio |
 
-# 🌐 Live Website
+**Hosting:** Render
 
-The portfolio will be deployed after final deployment configuration is completed.
-
-```text
-Live Website:
-Coming Soon
-```
-
-Backend API:
-
-```text
-Coming Soon
-```
+> Note: The backend runs on Render's free tier. After inactivity, the service may spin down, so the first request can take longer while it starts again.
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-The portfolio currently includes:
+The portfolio includes:
 
 - Responsive modern UI
 - Desktop and mobile compatibility
-- React-based component architecture
+- React component architecture
 - TypeScript support
 - React Router page navigation
 - Light and dark theme support
@@ -186,42 +90,41 @@ The portfolio currently includes:
 - Contact page
 - 404 Not Found page
 - Scroll-to-top functionality
-- Scroll reveal animations
+- Scroll-reveal animations
 - Reusable React components
 - Resume download
 - GitHub integration
 - LinkedIn integration
 - FastAPI backend
 - REST API communication
-- Skills loaded from FastAPI
-- Projects loaded from FastAPI
-- Contact form validation
-- Email validation
-- Contact form submission
-- Gmail SMTP integration
-- Direct reply support using `Reply-To`
-- Environment variable configuration
-- Secure Gmail App Password usage
-- Git/GitHub version control
+- Skills and projects loaded from the backend
+- Contact-form validation
+- Email-format validation
+- Contact-form submission
+- Resend API email delivery
+- Reply-to support for contact messages
+- Environment-based configuration
+- Health-check endpoint
+- UptimeRobot availability monitoring
+- Git and GitHub version control
 - Production build support
+- Deployment through Render
 
 ---
 
-# 🛠 Technology Stack
+## 🛠 Technology Stack
 
-## Frontend
+### Frontend
 
 | Technology | Purpose |
 |---|---|
-| React | Frontend UI |
-| TypeScript | Type-safe JavaScript |
+| React | Frontend user interface |
+| TypeScript | Type-safe application development |
 | Vite | Development server and build tool |
 | CSS | Styling and responsive design |
-| React Router DOM | Client-side routing |
+| React Router DOM | Client-side navigation |
 
----
-
-## Backend
+### Backend
 
 | Technology | Purpose |
 |---|---|
@@ -229,55 +132,56 @@ The portfolio currently includes:
 | FastAPI | Backend web framework |
 | Pydantic | Request data validation |
 | Uvicorn | ASGI server |
-| Python Dotenv | Environment variable loading |
-| SMTP | Email delivery |
-| Gmail | Contact message destination |
+| Python Dotenv | Local environment-variable loading |
+| Resend API | Email delivery over HTTPS |
 
----
-
-## Development Tools
+### Development Tools
 
 | Tool | Purpose |
 |---|---|
-| VS Code | Code editor |
+| Visual Studio Code | Code editor |
 | Git | Version control |
-| GitHub | Source code hosting |
+| GitHub | Source-code hosting |
+| Node.js | JavaScript runtime |
 | npm | JavaScript package manager |
+| Python | Backend runtime |
 | pip | Python package manager |
 | PowerShell | Terminal |
-| Node.js | JavaScript runtime |
-| Python Virtual Environment | Backend dependency isolation |
+| Render | Frontend and backend hosting |
+| UptimeRobot | Availability monitoring |
 
 ---
 
-# 🏗 Project Architecture
+## 🏗 Project Architecture
 
 The application follows this general architecture:
 
 ```text
-                        Visitor
-                           │
-                           ▼
-                React + TypeScript
-                       Frontend
-                           │
-                    REST API Calls
-                           │
-                           ▼
+                         Visitor
+                            |
+                            v
+                React + TypeScript Frontend
+                     (Render Hosting)
+                            |
+                       HTTPS Requests
+                            |
+                            v
                     Python FastAPI
-                       Backend
-                     /          \
-                    /            \
-                   ▼              ▼
-            Skills/Projects    Gmail SMTP
-                                  │
-                                  ▼
-                              Email Inbox
+                    (Render Hosting)
+                       /        \
+                      /          \
+                     v            v
+             Profile, Skills,   Resend API
+                Projects            |
+                                    v
+                                Email Inbox
 ```
+
+The frontend and backend are deployed as separate services. The frontend uses the configured API base URL to communicate with the backend.
 
 ---
 
-# 📁 Project Folder Structure
+## 📁 Project Folder Structure
 
 ```text
 arsalan-portfolio/
@@ -292,17 +196,11 @@ arsalan-portfolio/
 │   ├── favicon.svg
 │   ├── icons.svg
 │   ├── title1.png
-│   │
 │   └── resume/
 │       └── Shaikh-Arsalan-Resume.pdf
 │
 ├── src/
-│   │
 │   ├── assets/
-│   │   ├── hero.png
-│   │   ├── react.svg
-│   │   └── vite.svg
-│   │
 │   ├── components/
 │   │   ├── EducationCard.tsx
 │   │   ├── ExperienceCard.tsx
@@ -346,171 +244,183 @@ arsalan-portfolio/
 ├── README.md
 ├── eslint.config.js
 ├── index.html
-├── package-lock.json
 ├── package.json
+├── package-lock.json
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
 └── vite.config.ts
 ```
 
-> `.env`, `backend/.env`, `node_modules`, `dist`, and `backend/venv` are excluded from GitHub using `.gitignore`.
+The structure above represents the main project files. Some assets and configuration files may vary as development continues.
+
+Files such as `.env`, `backend/.env`, virtual environments, `node_modules`, and production build output should not be committed to Git.
 
 ---
 
-# ⚛️ Frontend Setup
+## ⚛️ Frontend Setup
 
-## 1. Install Node.js
+### 1. Prerequisites
 
-Node.js must be installed before running the React application.
+Install:
 
-Verify Node.js:
+- [Node.js](https://nodejs.org/)
+- npm, included with Node.js
+- [Git](https://git-scm.com/)
+- [Visual Studio Code](https://code.visualstudio.com/) (recommended)
+
+Verify the installations:
 
 ```bash
 node --version
-```
-
-Verify npm:
-
-```bash
 npm --version
+git --version
 ```
 
----
-
-## 2. Clone the Repository
+### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio.git
 ```
 
-Move into the project:
+Move into the project directory:
 
 ```bash
 cd arsalan-portfolio
 ```
 
----
-
-
-## ⚡ Creating the React + TypeScript Project with Vite
-
-This portfolio frontend was created using Vite.
-
-To create a new React + TypeScript project with Vite, run:
-
-```bash
-npm create vite@latest
-or
-npm create vite@latest arsalan-portfolio -- --template react-ts
-```
-
----
-## 3. Install Frontend Dependencies
+### 3. Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-This command reads:
+This installs the packages defined in `package.json` and uses `package-lock.json` to maintain dependency versions.
 
-```text
-package.json
+### 4. Configure the Frontend
+
+Create or update the root `.env` file:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000
 ```
 
-and downloads all required packages into:
+This URL points to the local FastAPI backend.
 
-```text
-node_modules/
+The frontend reads the value using:
+
+```typescript
+const API_URL = import.meta.env.VITE_API_URL;
 ```
 
----
+For example:
 
-## 4. Start the Development Server
+```typescript
+fetch(`${API_URL}/api/projects`);
+```
+
+Never put passwords or private API keys in variables prefixed with `VITE_`. These variables are included in the client-side application.
+
+### 5. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Vite will normally start the frontend at:
+Vite normally serves the application at:
 
 ```text
 http://localhost:5173
 ```
 
-or:
-
-```text
-http://127.0.0.1:5173
-```
-
 ---
 
-# 🐍 Backend Setup
+## 🐍 Backend Setup
 
-The backend is located inside:
+The backend is located in the `backend/` directory.
 
-```text
-backend/
-```
-
-Move into the backend folder:
-
-```bash
-cd backend
-```
-
----
-
-## 1. Check Python
+### 1. Check Python
 
 ```bash
 python --version
 ```
 
----
+### 2. Move into the Backend Directory
 
-## 2. Create a Python Virtual Environment
+```powershell
+cd backend
+```
+
+### 3. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-This creates:
+This creates an isolated Python environment in `backend/venv/`.
 
-```text
-backend/venv/
-```
+### 4. Activate the Virtual Environment
 
-The virtual environment keeps backend packages separate from global Python packages.
-
----
-
-## 3. Activate Virtual Environment
-
-### Windows PowerShell
+Windows PowerShell:
 
 ```powershell
-venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate.ps1
 ```
 
-### Windows Command Prompt
+Windows Command Prompt:
 
 ```cmd
 venv\Scripts\activate
 ```
 
-After activation, the terminal may look like:
+When activated, the terminal may display `(venv)` before the current path.
 
-```text
-(venv) PS E:\arsalan-portfolio\backend>
+### 5. Install Backend Dependencies
+
+```bash
+python -m pip install -r requirements.txt
 ```
 
----
+This installs the packages listed in the backend requirements file.
 
-## 4. Deactivate Virtual Environment
+To inspect installed packages:
 
-When finished:
+```bash
+python -m pip list
+```
+
+To inspect a specific package:
+
+```bash
+python -m pip show fastapi
+```
+
+### 6. Start FastAPI
+
+From the `backend/` directory:
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+The local backend should be available at:
+
+- API root: http://127.0.0.1:8000
+- Swagger documentation: http://127.0.0.1:8000/docs
+- ReDoc documentation: http://127.0.0.1:8000/redoc
+- Health check: http://127.0.0.1:8000/health
+
+### 7. Update Requirements
+
+After deliberately adding or updating Python packages:
+
+```bash
+python -m pip freeze > requirements.txt
+```
+
+Review the changes before committing them.
+
+### 8. Deactivate the Virtual Environment
 
 ```bash
 deactivate
@@ -518,141 +428,11 @@ deactivate
 
 ---
 
-## 5. Install Backend Packages
+## 🔐 Environment Variables
 
-Install FastAPI:
+This project uses separate configuration for the frontend and backend.
 
-```bash
-python -m pip install fastapi
-```
-
-Install Uvicorn:
-
-```bash
-python -m pip install uvicorn
-```
-
-Install Python Dotenv:
-
-```bash
-python -m pip install python-dotenv
-```
-
-Install all required backend dependencies from the existing requirements file:
-
-```bash
-python -m pip install -r requirements.txt
-```
-
----
-
-## 6. Check Installed Packages
-
-```bash
-python -m pip list
-```
-
----
-
-## 7. Check a Specific Package
-
-Example:
-
-```bash
-python -m pip show fastapi
-```
-
-For Python Dotenv:
-
-```bash
-python -m pip show python-dotenv
-```
-
-For Uvicorn:
-
-```bash
-python -m pip show uvicorn
-```
-
----
-
-## 8. Generate `requirements.txt`
-
-After installing or updating backend dependencies:
-
-```bash
-python -m pip freeze > requirements.txt
-```
-
-The current backend requirements include packages such as:
-
-```text
-annotated-doc
-annotated-types
-anyio
-click
-colorama
-fastapi
-h11
-idna
-pydantic
-pydantic_core
-python-dotenv
-starlette
-typing-inspection
-typing_extensions
-uvicorn
-```
-
----
-
-## 9. Start FastAPI Backend
-
-From inside:
-
-```text
-backend/
-```
-
-run:
-
-```bash
-python -m uvicorn main:app --reload
-```
-
-FastAPI normally starts at:
-
-```text
-http://127.0.0.1:8000
-```
-
----
-
-## 10. FastAPI Swagger Documentation
-
-FastAPI automatically provides interactive API documentation.
-
-Open:
-
-```text
-http://127.0.0.1:8000/docs
-```
-
-Alternative documentation:
-
-```text
-http://127.0.0.1:8000/redoc
-```
-
----
-
-# 🔐 Environment Variables
-
-This project uses two different `.env` files.
-
----
-
-## Frontend `.env`
+### Frontend `.env`
 
 Location:
 
@@ -660,27 +440,21 @@ Location:
 arsalan-portfolio/.env
 ```
 
-Development configuration:
+For local development:
 
 ```env
 VITE_API_URL=http://127.0.0.1:8000
 ```
 
-React reads the variable using:
+For production, the frontend's environment variable is configured in Render:
 
-```ts
-const API_URL = import.meta.env.VITE_API_URL
+```env
+VITE_API_URL=https://arsalan-portfolio-api.onrender.com
 ```
 
-Example API request:
+After changing a Vite environment variable, rebuild or redeploy the frontend for the change to take effect.
 
-```ts
-fetch(`${API_URL}/api/projects`)
-```
-
----
-
-## Backend `.env`
+### Backend `.env`
 
 Location:
 
@@ -688,252 +462,155 @@ Location:
 arsalan-portfolio/backend/.env
 ```
 
-Example:
+Local development example:
 
 ```env
-EMAIL_ADDRESS=your_email@gmail.com
-EMAIL_APP_PASSWORD=your_google_app_password
+RESEND_API_KEY=your_resend_api_key
+EMAIL_ADDRESS=your_recipient_email@example.com
 ```
 
-The real values must never be uploaded to GitHub.
+| Variable | Purpose |
+|---|---|
+| `RESEND_API_KEY` | Secret API key used to authenticate with Resend |
+| `EMAIL_ADDRESS` | Recipient inbox for contact-form messages |
+
+Replace the example values with your own configuration.
+
+For production, add these variables in the Render backend service's **Environment** settings.
+
+**Important:** The backend uses Resend over HTTPS, not Gmail SMTP. An `EMAIL_APP_PASSWORD` is not required by the current configuration.
+
+Never commit `.env` files or publish your Resend API key.
 
 ---
 
-# 📦 Frontend Commands
+## 📦 Frontend Commands
 
-## Install dependencies
+Run these commands from the project root.
+
+### Install dependencies
 
 ```bash
 npm install
 ```
 
----
-
-## Start development server
+### Start development server
 
 ```bash
 npm run dev
 ```
 
----
-
-## Build production version
+### Build for production
 
 ```bash
 npm run build
 ```
 
-The production files are generated inside:
+The production files are generated in:
 
 ```text
 dist/
 ```
 
----
-
-## Preview Production Build
+### Preview the production build
 
 ```bash
 npm run preview
 ```
 
----
-
-## Run ESLint
-
-Depending on the scripts available in `package.json`:
+### Run ESLint
 
 ```bash
 npm run lint
 ```
 
----
+This command is available if the `lint` script is configured in `package.json`.
 
-## Install React Router
-
-React Router is used for navigation between portfolio pages.
-
-```bash
-npm install react-router-dom
-```
-
----
-
-## Install a New npm Package
-
-General syntax:
-
-```bash
-npm install package-name
-```
-
-Example:
-
-```bash
-npm install react-router-dom
-```
-
----
-
-## Install Development Dependency
-
-```bash
-npm install --save-dev package-name
-```
-
-Example:
-
-```bash
-npm install --save-dev typescript
-```
-
----
-
-## Remove an npm Package
-
-```bash
-npm uninstall package-name
-```
-
-Example:
-
-```bash
-npm uninstall react-router-dom
-```
-
----
-
-## View Installed npm Packages
+### View installed packages
 
 ```bash
 npm list
 ```
 
----
-
-## View Top-Level npm Packages
+View top-level dependencies:
 
 ```bash
 npm list --depth=0
 ```
 
----
-
-## Check Outdated Packages
+### Check outdated packages
 
 ```bash
 npm outdated
 ```
 
----
-
-## Check npm Security Issues
+### Check dependency security advisories
 
 ```bash
 npm audit
 ```
 
----
-
-## Automatically Fix Compatible Security Issues
+You can review compatible fixes with:
 
 ```bash
 npm audit fix
 ```
 
-Avoid using:
+Avoid `npm audit fix --force` unless you have reviewed the potentially breaking changes.
+
+### Install or remove a package
 
 ```bash
-npm audit fix --force
+npm install package-name
 ```
 
-unless you understand the breaking dependency changes it may introduce.
-
----
-
-## Check Vite Version
-
 ```bash
-npm list vite
+npm uninstall package-name
 ```
 
 ---
 
-## Check React Version
+## 🐍 Backend Commands
 
-```bash
-npm list react
-```
+Run these commands from the `backend/` directory.
 
----
-
-# 🐍 Backend Commands
-
-## Move into backend
-
-```bash
-cd backend
-```
-
----
-
-## Create virtual environment
+### Create a virtual environment
 
 ```bash
 python -m venv venv
 ```
 
----
-
-## Activate virtual environment
+### Activate it in PowerShell
 
 ```powershell
-venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate.ps1
 ```
 
----
-
-## Upgrade pip
+### Upgrade pip
 
 ```bash
 python -m pip install --upgrade pip
 ```
 
----
-
-## Install FastAPI
-
-```bash
-python -m pip install fastapi
-```
-
----
-
-## Install Uvicorn
-
-```bash
-python -m pip install uvicorn
-```
-
----
-
-## Install Dotenv
-
-```bash
-python -m pip install python-dotenv
-```
-
----
-
-## Install dependencies from requirements
+### Install dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
----
+### View installed packages
 
-## Generate requirements
+```bash
+python -m pip list
+```
+
+### Start the backend locally
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+### Generate the requirements file
 
 ```bash
 python -m pip freeze > requirements.txt
@@ -941,678 +618,367 @@ python -m pip freeze > requirements.txt
 
 ---
 
-## List Python packages
-
-```bash
-python -m pip list
-```
-
----
-
-## Start FastAPI
-
-```bash
-python -m uvicorn main:app --reload
-```
-
----
-
-## Start FastAPI Using Host and Port
-
-```bash
-python -m uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
----
-
-# 🔌 API Endpoints
+## 🔌 API Endpoints
 
 The FastAPI backend currently provides the following endpoints.
 
----
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `GET` | `/` | Backend status |
+| `GET` | `/health` | Health check for availability monitoring |
+| `HEAD` | `/health` | Health check for monitors that use HEAD, if enabled in the backend |
+| `GET` | `/api/profile` | Returns profile information |
+| `GET` | `/api/skills` | Returns technical skills |
+| `GET` | `/api/projects` | Returns project information |
+| `POST` | `/contact` | Validates and processes a contact-form message |
 
-## Backend Status
+Interactive API documentation:
 
-```http
-GET /
-```
+https://arsalan-portfolio-api.onrender.com/docs
 
-Example response:
+### Health Check
 
-```json
-{
-  "message": "Portfolio backend is running"
-}
-```
+URL:
 
----
+https://arsalan-portfolio-api.onrender.com/health
 
-## Profile
-
-```http
-GET /api/profile
-```
-
-Returns profile information.
-
----
-
-## Skills
-
-```http
-GET /api/skills
-```
-
-Returns technical skills used by the React Skills page.
-
----
-
-## Projects
-
-```http
-GET /api/projects
-```
-
-Returns portfolio project information.
-
----
-
-## Contact
-
-```http
-POST /contact
-```
-
-Expected JSON request:
+Expected response:
 
 ```json
 {
-  "name": "Example User",
-  "email": "example@gmail.com",
-  "subject": "Portfolio Contact",
-  "message": "Hello, I would like to contact you."
+  "status": "ok"
 }
 ```
 
+This endpoint helps uptime-monitoring services check whether the backend is responding.
+
 ---
 
-# 📧 Contact Form Workflow
+## 📧 Contact Form Workflow
 
-The contact system works like this:
+The contact form uses the following workflow:
 
 ```text
 Visitor
-   │
-   ▼
-Contact.tsx
-   │
-   │ POST /contact
-   ▼
-FastAPI
-   │
-   ▼
-Pydantic Validation
-   │
-   ▼
-Gmail SMTP
-   │
-   ▼
-Portfolio Owner's Gmail Inbox
+   |
+   v
+React Contact Page
+   |
+   | POST /contact
+   v
+FastAPI Backend
+   |
+   v
+Request Validation
+   |
+   | HTTPS API request
+   v
+Resend Email API
+   |
+   v
+Configured Recipient Inbox
 ```
 
-The backend authenticates using:
-
-```env
-EMAIL_ADDRESS
-EMAIL_APP_PASSWORD
-```
-
-The message includes:
+The form collects information such as:
 
 - Visitor name
 - Visitor email
 - Subject
 - Message
 
-The backend also uses:
+The backend validates the request and sends the email through Resend. Where configured, the visitor's email is used as the reply-to address.
 
-```python
-email["Reply-To"] = data.email
-```
+### Email Configuration
 
-This allows the portfolio owner to click **Reply** in Gmail and reply directly to the visitor.
-
----
-
-# 🔑 Gmail App Password
-
-The backend does **not** use the normal Gmail password.
-
-A Google-generated App Password is used instead.
-
-The `.env` format is:
+The backend uses these environment variables:
 
 ```env
-EMAIL_ADDRESS=your_email@gmail.com
-EMAIL_APP_PASSWORD=your_google_generated_app_password
+RESEND_API_KEY=your_resend_api_key
+EMAIL_ADDRESS=your_recipient_email@example.com
 ```
 
-Never share or upload the real App Password.
+- `RESEND_API_KEY` authenticates the backend's requests to Resend.
+- `EMAIL_ADDRESS` identifies the recipient inbox.
+- The sender address is configured in the backend.
+
+Resend may require a verified sending domain for production email delivery. Review the sender and recipient restrictions in your Resend account.
+
+Do not expose your API key in frontend code, GitHub, screenshots, or logs.
 
 ---
 
-# 🛡 Security
+## ⏱ Uptime Monitoring
 
-Sensitive files are excluded using `.gitignore`.
+UptimeRobot monitors the backend health endpoint:
 
-Important ignored files include:
-
-```gitignore
-.env
-.env.*
-backend/.env
-
-backend/venv/
-venv/
-.venv/
-
-node_modules/
-dist/
-dist-ssr/
-
-__pycache__/
-*.py[cod]
+```text
+https://arsalan-portfolio-api.onrender.com/health
 ```
+
+Current monitoring configuration:
+
+- **Monitor type:** HTTP(s)
+- **Check interval:** 5 minutes
+- **Purpose:** Check backend availability and send notifications according to the monitor's settings
+
+Periodic requests may help reduce the impact of cold starts, but monitoring does not guarantee that a Render free-tier service will remain awake continuously. Render may still restart or suspend the service.
+
+If the monitor reports `405 Method Not Allowed`, check whether it is sending `HEAD` requests and ensure the FastAPI health endpoint supports the required methods.
 
 ---
 
-## Verify that `.env` is ignored
+## 🔀 Git and GitHub Commands
 
-Frontend:
-
-```bash
-git check-ignore -v .env
-```
-
-Backend:
-
-```bash
-git check-ignore -v backend/.env
-```
-
-Virtual environment:
-
-```bash
-git check-ignore -v backend/venv/
-```
-
----
-
-# 🔀 Git and GitHub Commands
-
-## Initialize Git Repository
-
-```bash
-git init
-```
-
----
-
-## Check Repository Status
+### Check repository status
 
 ```bash
 git status
 ```
 
----
-
-## Rename Default Branch to `main`
-
-```bash
-git branch -M main
-```
-
----
-
-## Stage All Files
-
-```bash
-git add .
-```
-
----
-
-## Stage One File
-
-```bash
-git add filename
-```
-
-Example:
+### Stage the README
 
 ```bash
 git add README.md
 ```
 
----
-
-## Remove a File from Staging
-
-```bash
-git restore --staged filename
-```
-
----
-
-## Create a Commit
-
-```bash
-git commit -m "Your commit message"
-```
-
-Example:
-
-```bash
-git commit -m "Initial commit - React TypeScript portfolio with FastAPI backend"
-```
-
----
-
-## Connect Local Repository to GitHub
-
-```bash
-git remote add origin https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio.git
-```
-
----
-
-## Check Git Remote
-
-```bash
-git remote -v
-```
-
----
-
-## Push First Commit
-
-```bash
-git push -u origin main
-```
-
----
-
-## Push Future Changes
-
-After the initial setup:
+### Stage all changes
 
 ```bash
 git add .
 ```
 
-```bash
-git commit -m "Describe your changes"
-```
+Before staging everything, confirm that no secrets or environment files are included.
+
+### Commit changes
 
 ```bash
-git push
+git commit -m "Update portfolio documentation"
 ```
 
----
-
-## View Commit History
+### Push changes to GitHub
 
 ```bash
-git log
+git push origin main
 ```
 
-Compact version:
+### View commit history
 
 ```bash
 git log --oneline
 ```
 
----
-
-## Check Current Branch
+### Check configured remote
 
 ```bash
-git branch
+git remote -v
 ```
 
----
-
-## Pull Latest Changes
+### Pull latest changes
 
 ```bash
-git pull
+git pull origin main
 ```
+
+Repository:
+
+https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio
 
 ---
 
-## Clone Repository
+## 🚀 Build for Production
 
-```bash
-git clone https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio.git
-```
-
----
-
-# 🚀 Build for Production
-
-Before deployment, create a production frontend build:
+Before deployment, build the frontend:
 
 ```bash
 npm run build
 ```
 
-Vite creates:
+Vite generates the production assets in `dist/`.
 
-```text
-dist/
-```
-
-A successful build should show output similar to:
-
-```text
-vite building for production...
-✓ modules transformed
-✓ built successfully
-```
-
-Test the production build locally:
+Preview the production build locally:
 
 ```bash
 npm run preview
 ```
 
+Resolve build errors before deploying changes.
+
 ---
 
-# 🔄 Updating the Portfolio
+## 🌍 Deployment on Render
 
-The website can continue to be updated after deployment.
+The frontend and backend are hosted as separate Render services.
 
-For example, after adding a new project:
+### Frontend Deployment
+
+Live URL:
+
+https://arsalan-portfolio-mbqy.onrender.com/home
+
+Typical build command:
 
 ```bash
-git add .
-git commit -m "Add new portfolio project"
-git push
+npm install && npm run build
 ```
 
-If deployment is connected to GitHub, the hosting platform can automatically redeploy the latest version.
-
----
-
-# 📚 Adding New Projects
-
-Projects are currently returned from the FastAPI backend.
-
-Example project object:
-
-```python
-{
-    "id": 6,
-    "title": "New Project",
-    "description": "Project description",
-    "technologies": [
-        "React",
-        "Python",
-        "FastAPI"
-    ],
-    "github": "https://github.com/username/project"
-}
-```
-
-After changing the backend:
-
-```bash
-git add .
-git commit -m "Add new project"
-git push
-```
-
----
-
-# 🧠 Adding New Skills
-
-Skills are provided through:
-
-```http
-GET /api/skills
-```
-
-Example:
-
-```python
-{
-    "name": "Docker",
-    "category": "Tools"
-}
-```
-
----
-
-# 🎓 Education and Experience
-
-Education and Experience data are currently stored in the frontend:
+Publish directory:
 
 ```text
-src/data/education.ts
-src/data/experience.ts
+dist
 ```
 
-These files can be edited whenever new information needs to be added.
-
----
-
-# 🧪 Local Development Workflow
-
-Normally, two terminals are used during development.
-
-## Terminal 1 — Backend
-
-```bash
-cd E:\arsalan-portfolio\backend
-```
-
-Activate environment:
-
-```powershell
-venv\Scripts\Activate.ps1
-```
-
-Start FastAPI:
-
-```bash
-python -m uvicorn main:app --reload
-```
-
----
-
-## Terminal 2 — Frontend
-
-```bash
-cd E:\arsalan-portfolio
-```
-
-Start Vite:
-
-```bash
-npm run dev
-```
-
-The frontend communicates with:
-
-```text
-http://127.0.0.1:8000
-```
-
-using:
+Production environment variable:
 
 ```env
-VITE_API_URL=http://127.0.0.1:8000
+VITE_API_URL=https://arsalan-portfolio-api.onrender.com
 ```
 
----
+If React Router is used for client-side routing, configure a Render rewrite so application routes resolve to `/index.html`.
 
-# 🧹 Useful Terminal Commands
+### Backend Deployment
 
-## Show Current Folder
+Live URL:
 
-PowerShell:
+https://arsalan-portfolio-api.onrender.com
 
-```powershell
-Get-Location
-```
-
----
-
-## Move to Project Folder
-
-```powershell
-cd E:\arsalan-portfolio
-```
-
----
-
-## Move to Backend
-
-```powershell
-cd E:\arsalan-portfolio\backend
-```
-
----
-
-## Go Back One Folder
-
-```powershell
-cd ..
-```
-
----
-
-## List Files
-
-PowerShell:
-
-```powershell
-Get-ChildItem
-```
-
-or:
-
-```powershell
-dir
-```
-
----
-
-## Clear Terminal
-
-```powershell
-cls
-```
-
----
-
-# ⚠️ Troubleshooting
-
-## Frontend Cannot Connect to Backend
-
-Make sure FastAPI is running:
+If the Render backend service's root directory is set to `backend`, a typical build command is:
 
 ```bash
-python -m uvicorn main:app --reload
+pip install -r requirements.txt
 ```
 
-Check:
+A typical start command is:
 
-```text
-http://127.0.0.1:8000
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
----
-
-## Contact Form Gives 500 Error
-
-Check that:
-
-```text
-backend/.env
-```
-
-contains:
+Configure these backend environment variables in Render:
 
 ```env
-EMAIL_ADDRESS=your_real_email
-EMAIL_APP_PASSWORD=your_google_app_password
+RESEND_API_KEY=your_resend_api_key
+EMAIL_ADDRESS=your_recipient_email@example.com
 ```
 
-Restart FastAPI after changing `.env`.
+Make sure the backend's CORS configuration permits requests from the deployed frontend origin.
+
+The exact build and start commands depend on the root directory configured for the Render service.
+
+### Automatic Deployment
+
+If Render is connected to the GitHub repository with automatic deployment enabled, pushing changes to the configured branch can trigger a deployment.
+
+After deployment, check the service logs and verify the live website and API endpoints.
 
 ---
 
-## Skills or Projects Are Not Loading
+## 🔄 Updating the Portfolio
 
-Confirm frontend `.env` contains:
-
-```env
-VITE_API_URL=http://127.0.0.1:8000
-```
-
-Restart Vite:
-
-```bash
-npm run dev
-```
-
----
-
-## CORS Error
-
-FastAPI currently allows local Vite development URLs such as:
-
-```python
-allow_origins=[
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-]
-```
-
-The deployed frontend domain must later be added to the CORS configuration.
-
----
-
-## `fatal: not a git repository`
-
-Run Git commands from the project root and initialize Git if required:
-
-```bash
-git init
-```
-
----
-
-## Check Git Root
+After making changes locally, test the application and review the files to be committed.
 
 ```bash
 git status
+git add .
+git commit -m "Describe your changes"
+git push origin main
 ```
+
+If automatic deployment is enabled, Render can deploy the latest changes from GitHub.
+
+Always check that `.env` files, credentials, virtual environments, and generated files are excluded before pushing.
 
 ---
 
-## `node_modules` Missing
+## 🛡 Security
 
-Run:
+Important security practices:
+
+- Never commit `.env` files, API keys, passwords, or credentials.
+- Store `RESEND_API_KEY` only in the backend environment.
+- Never expose private keys through `VITE_` environment variables.
+- Validate contact-form input on the backend.
+- Restrict CORS to the intended frontend origins.
+- Consider adding rate limiting and spam protection to the contact endpoint.
+- Keep dependencies updated and review security advisories.
+- Rotate any credential that has accidentally been exposed.
+
+### Verify ignored files
+
+Check the frontend environment file:
+
+```bash
+git check-ignore -v .env
+```
+
+Check the backend environment file:
+
+```bash
+git check-ignore -v backend/.env
+```
+
+Check the backend virtual environment:
+
+```bash
+git check-ignore -v backend/venv/
+```
+
+Deleting a secret from a later commit does not remove it from earlier Git history. If a credential is exposed, revoke or rotate it.
+
+---
+
+## ⚠️ Troubleshooting
+
+### Frontend Cannot Connect to Backend
+
+Check that the backend is running and the frontend uses the correct API URL.
+
+Local development:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000
+```
+
+Production:
+
+```env
+VITE_API_URL=https://arsalan-portfolio-api.onrender.com
+```
+
+Check the browser console, Network panel, CORS settings, and backend logs.
+
+### Skills or Projects Load Slowly
+
+The frontend fetches data from the FastAPI backend. If the backend has spun down after inactivity, the first request may take longer while the service starts.
+
+Check the health endpoint and the Render backend logs.
+
+### Contact Form Fails
+
+1. Confirm `RESEND_API_KEY` is configured in the Render backend environment.
+2. Confirm `EMAIL_ADDRESS` contains the intended recipient inbox.
+3. Review backend logs for Resend API errors.
+4. Check the sender address and domain-verification requirements in Resend.
+5. Confirm the frontend is submitting the expected fields to `POST /contact`.
+
+Do not share your private API key when requesting help.
+
+### UptimeRobot Reports a Failed Health Check
+
+1. Open the health URL directly.
+2. Check the HTTP response status.
+3. Review the Render backend logs.
+4. If the monitor sends `HEAD`, ensure the health endpoint supports it.
+5. Confirm the latest backend deployment completed successfully.
+
+### `node_modules` Is Missing
+
+Run from the project root:
 
 ```bash
 npm install
 ```
 
----
-
-## Backend Packages Missing
+### Backend Packages Are Missing
 
 Activate the virtual environment and run:
 
@@ -1620,103 +986,72 @@ Activate the virtual environment and run:
 python -m pip install -r requirements.txt
 ```
 
----
+### CORS Error
 
-# 🌍 Deployment
+Ensure the backend CORS configuration includes the deployed frontend origin, along with the required local development origins.
 
-The project is designed so the frontend and backend can be deployed to suitable hosting platforms.
+### `fatal: not a git repository`
 
-The final deployment platform will be selected separately.
+Run Git commands from the project root and verify the current directory:
 
-During deployment, the frontend environment variable will change from:
-
-```env
-VITE_API_URL=http://127.0.0.1:8000
+```powershell
+Get-Location
 ```
-
-to a public backend URL such as:
-
-```env
-VITE_API_URL=https://your-backend-domain.example
-```
-
-The Gmail credentials must be configured directly through the hosting platform's environment variable settings.
-
-Never upload the production `.env` files.
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Improvements
 
-Possible future improvements include:
+Potential future improvements include:
 
 - Custom domain
-- Improved animations
-- More portfolio projects
-- Project screenshots
-- Project detail pages
+- Improved SEO and social previews
+- More portfolio projects and screenshots
+- Detailed project pages
+- Certificates and achievements
+- Blog or technical writing section
 - Admin dashboard
 - Database integration
-- Dynamic education management
-- Dynamic experience management
-- Blog section
-- Certificates section
-- Achievement section
-- Better backend validation
-- Contact spam protection
-- Rate limiting
-- CAPTCHA
+- Dynamic education and experience management
+- Contact-form rate limiting and CAPTCHA
 - Analytics
-- SEO improvements
-- Open Graph metadata
-- Better accessibility
+- Accessibility improvements
 - Performance optimization
-- Automated deployment
-- Cloud hosting
+- Automated testing
 - Docker support
 
 ---
 
-# 📄 Resume
+## 📄 Resume
 
-The resume is available inside:
+The resume is stored at:
 
 ```text
 public/resume/Shaikh-Arsalan-Resume.pdf
 ```
 
-and can be accessed/downloaded through the portfolio website.
+It can be accessed through the portfolio website.
 
 ---
 
-# 🔗 Social Links
+## 🔗 Social Links
 
-## GitHub
-
-https://github.com/Arsalan-Dev-Cloud
-
-## LinkedIn
-
-https://www.linkedin.com/in/shaikh-arsalan-92b00941a
+- **GitHub:** https://github.com/Arsalan-Dev-Cloud
+- **LinkedIn:** https://www.linkedin.com/in/shaikh-arsalan-92b00941a
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Shaikh Arsalan**
 
-Full Stack Web Developer  
-Data Engineer
+Full Stack Web Developer · Aspiring Data Engineer
+
+**Location:** Maharashtra, India
 
 ---
 
-# 📍 Location
-
-Maharashtra, India
-
----
-
-# 💻 Main Technologies
+## 💻 Main Technologies
 
 ```text
 React
@@ -1727,7 +1062,7 @@ Python
 FastAPI
 Pydantic
 REST API
-Gmail SMTP
+Resend API
 Git
 GitHub
 SQL
@@ -1738,14 +1073,10 @@ Azure
 
 ---
 
-# ⭐ Repository
+## ⭐ Repository
 
-If you find this portfolio useful or interesting, feel free to explore the repository.
+Explore the source code:
 
-```text
 https://github.com/Arsalan-Dev-Cloud/arsalan-portfolio
-```
-
----
 
 Built with ❤️ using React, TypeScript, Python, and FastAPI.
