@@ -90,8 +90,8 @@ Message:
 """
     )
 
+    
     try:
-
         print("Contact form: connecting to Gmail...", flush=True)
 
         with smtplib.SMTP_SSL(
@@ -116,13 +116,15 @@ Message:
         }
 
     except Exception as error:
+        import traceback
 
-        print("Email error:", error)
-
+        print("CONTACT EMAIL ERROR:", repr(error), flush=True)
+        traceback.print_exc()
         raise HTTPException(
             status_code=500,
-            detail="Unable to send email"
+            detail="Unable to send email. Check backend logs."
         )
+
 
 
 # -----------------------------
