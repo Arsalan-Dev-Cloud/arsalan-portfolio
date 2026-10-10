@@ -18,12 +18,14 @@ type Project = {
   demo: string
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"
+
 function Home() {
   const [skills, setSkills] = useState<Skill[]>([])
   const [projects, setProjects] = useState<Project[]>([])
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/skills")
+    fetch(`${API_BASE_URL}/api/skills`)
       .then((response) => response.json())
       .then((data) => {
         setSkills(data.skills)
@@ -32,7 +34,7 @@ function Home() {
         console.error("Error fetching skills:", error)
       })
 
-    fetch("http://127.0.0.1:8000/api/projects")
+    fetch(`${API_BASE_URL}/api/projects`)
       .then((response) => response.json())
       .then((data) => {
         setProjects(data.projects)
