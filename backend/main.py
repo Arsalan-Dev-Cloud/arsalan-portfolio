@@ -1,6 +1,9 @@
+
 import os
-import smtplib
-from email.message import EmailMessage
+import json
+
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -55,75 +58,76 @@ class ContactMessage(BaseModel):
 # -----------------------------
 # CONTACT ROUTE
 # -----------------------------
+
 @app.post("/contact")
 def contact_form(data: ContactMessage):
+    api_key = os.getenv("RESEND_API_KEY")
+    recipient_email = os.getenv("EMAIL_ADDRESS")
 
-    sender_email = os.getenv("EMAIL_ADDRESS")
-    app_password = os.getenv("EMAIL_APP_PASSWORD")
-
-    if not sender_email or not app_password:
+    if not api_key or not recipient_email:
         raise HTTPException(
             status_code=500,
             detail="Email configuration is missing"
         )
 
-    email = EmailMessage()
+    payload = {
+        "from": "Portfolio Contact <onboarding@resend.dev>",
+        "to": [recipient_email],
+        "subject": f"Portfolio Contact: {data.subject}",
+        "reply_to": data.email,
+        "text": (
+            "New message from your portfolio website\n\n"
+            f"Name: {data.name}\n"
+            f"Email: {data.email}\n"
+            f"Subject: {data.subject}\n\n"
+            f"Message:\n{data.message}"
+        ),
+    }
 
-    email["From"] = f"{data.name} via Portfolio Contact<{sender_email}>"
-    email["To"] = sender_email
-    email["Subject"] = f"Portfolio Contact: {data.subject}"
-
-    # This lets you directly press Reply in Gmail
-    # and reply to the visitor.
-    email["Reply-To"] = data.email
-
-    email.set_content(
-        f"""
-New message from your portfolio website
-
-Name: {data.name}
-Email: {data.email}
-Subject: {data.subject}
-
-Message:
-{data.message}
-"""
+    request = Request(
+        "https://api.resend.com/emails",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
     )
 
-    
     try:
-        print("Contact form: connecting to Gmail...", flush=True)
+        print("Contact form: sending through Resend API...", flush=True)
 
-        with smtplib.SMTP_SSL(
-            "smtp.gmail.com",
-            465,
-            timeout=20
-        ) as smtp:
-            print("Contact form: connected to Gmail.", flush=True)
+        with urlopen(request, timeout=20) as response:
+            result = json.loads(response.read().decode("utf-8"))
 
-            smtp.login(
-                sender_email,
-                app_password.strip().replace(" ", "")
-            )
-            print("Contact form: Gmail login successful.", flush=True)
-
-            smtp.send_message(email)
-            print("Contact form: email accepted by SMTP.", flush=True)
+        print(
+            f"Contact form: Resend accepted email. ID: {result.get('id')}",
+            flush=True,
+        )
 
         return {
             "status": "success",
-            "message": "Message sent successfully"
+            "message": "Message sent successfully",
         }
 
-    except Exception as error:
-        import traceback
-
-        print("CONTACT EMAIL ERROR:", repr(error), flush=True)
-        traceback.print_exc()
-        raise HTTPException(
-            status_code=500,
-            detail="Unable to send email. Check backend logs."
+    except HTTPError as error:
+        details = error.read().decode("utf-8", errors="replace")
+        print(
+            f"Resend API error: HTTP {error.code}: {details}",
+            flush=True,
         )
+        raise HTTPException(
+            status_code=502,
+            detail="Email provider rejected the request. Check backend logs.",
+        )
+
+    except (URLError, TimeoutError, OSError) as error:
+        print(f"Resend connection error: {error!r}", flush=True)
+        raise HTTPException(
+            status_code=502,
+            detail="Could not connect to the email provider.",
+        )
+
 
 
 
