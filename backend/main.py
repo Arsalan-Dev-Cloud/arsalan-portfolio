@@ -298,6 +298,10 @@ def get_projects():
                     "TypeScript",
                     "CSS",
                 ],
+                "github":
+                    "https://github.com/Arsalan-Dev-Cloud/react-techstore",
+                "demo":
+                    "https://react-techstore.onrender.com/"
             },
 
             {
