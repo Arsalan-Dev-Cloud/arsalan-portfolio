@@ -242,6 +242,26 @@ def get_projects():
 
             {
                 "id": 1,
+                "title": "Invoice Generator",
+                "description":
+                    "The application allows users to create professional invoices, generate PDF documents, manage invoice history, securely store generated PDFs in the cloud, and manage their accounts. It also includes a role-based admin system with user, invoice, revenue, and activity monitoring.",
+                "technologies": [
+                    "HTML",
+                    "CSS",
+                    "JavaScript",
+                    "Flask",
+                    "PostgreSQL",
+                    "ReportLab",
+                    "Cloudinary"
+                ],
+                "github":
+                    "https://github.com/Arsalan-Dev-Cloud/car-showroom-management-system",
+                "demo":
+                    "https://invoice-generator-96ez.onrender.com/",
+            },
+
+            {
+                "id": 2,
                 "title": "CryptoTradeX",
                 "description":
                     "A real-time cryptocurrency platform featuring live coin prices, interactive charts, authentication, dashboard features, and currency conversion.",
@@ -255,7 +275,7 @@ def get_projects():
             },
 
             {
-                "id": 2,
+                "id": 3,
                 "title": "Vehicle Health Monitoring",
                 "description":
                     "A vehicle monitoring and analytics system designed to collect vehicle data, detect faults, analyze performance, and visualize useful insights.",
@@ -269,7 +289,7 @@ def get_projects():
             },
 
             {
-                "id": 3,
+                "id": 4,
                 "title": "TechStore",
                 "description":
                     "A modern e-commerce frontend with product browsing, categories, search functionality, reusable React components, and responsive design.",
@@ -281,7 +301,7 @@ def get_projects():
             },
 
             {
-                "id": 4,
+                "id": 5,
                 "title": "Car Showroom Management System",
                 "description":
                     "A full-stack car showroom management website with vehicle browsing, user interactions, registration features, and database integration.",
@@ -297,7 +317,7 @@ def get_projects():
             },
 
             {
-                "id": 5,
+                "id": 6,
                 "title": "Furniture Showroom Management System",
                 "description":
                     "A furniture showroom management website with product browsing, showroom features, user interactions, and database integration.",
