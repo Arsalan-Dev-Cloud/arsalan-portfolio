@@ -286,6 +286,8 @@ def get_projects():
                     "Power BI",
                     "Data Analytics",
                 ],
+                "github":
+                    "https://github.com/Arsalan-Dev-Cloud/AI-Vehicle-Health-Monitoring",
             },
 
             {
